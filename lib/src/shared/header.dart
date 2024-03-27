@@ -91,91 +91,94 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        if (centerLeadingDate)
-          GestureDetector(
-            onTap: onPreviousPage,
-            child: SizedBox(
-              width: 36,
-              height: 36,
-              child: DecoratedBox(
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                ),
-                child: Icon(
-                  CupertinoIcons.chevron_left,
-                  size: slidersSize,
-                  color: slidersColor,
-                ),
-              ),
-            ),
-          ),
-        LeadingDate(
-          onTap: onDateTap,
-          displayedText: displayedDate,
-          displayedTextStyle: leadingDateTextStyle,
-        ),
-        if (centerLeadingDate)
-          GestureDetector(
-            onTap: onNextPage,
-            child: SizedBox(
-              width: 36,
-              height: 36,
-              child: DecoratedBox(
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                ),
-                child: Icon(
-                  CupertinoIcons.chevron_right,
-                  size: slidersSize,
-                  color: slidersColor,
-                ),
-              ),
-            ),
-          ),
-        if (!centerLeadingDate)
-          Row(
-            children: [
-              GestureDetector(
-                onTap: onPreviousPage,
-                child: SizedBox(
-                  width: 36,
-                  height: 36,
-                  child: DecoratedBox(
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                    ),
-                    child: Icon(
-                      CupertinoIcons.chevron_left,
-                      size: slidersSize,
-                      color: slidersColor,
-                    ),
+    return Directionality(
+      textDirection: TextDirection.ltr,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          if (centerLeadingDate)
+            GestureDetector(
+              onTap: onPreviousPage,
+              child: SizedBox(
+                width: 36,
+                height: 36,
+                child: DecoratedBox(
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                  ),
+                  child: Icon(
+                    CupertinoIcons.chevron_left,
+                    size: slidersSize,
+                    color: slidersColor,
                   ),
                 ),
               ),
-              const SizedBox(width: 10),
-              GestureDetector(
-                onTap: onNextPage,
-                child: SizedBox(
-                  width: 36,
-                  height: 36,
-                  child: DecoratedBox(
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                    ),
-                    child: Icon(
-                      CupertinoIcons.chevron_right,
-                      size: slidersSize,
-                      color: slidersColor,
-                    ),
+            ),
+          LeadingDate(
+            onTap: onDateTap,
+            displayedText: displayedDate,
+            displayedTextStyle: leadingDateTextStyle,
+          ),
+          if (centerLeadingDate)
+            GestureDetector(
+              onTap: onNextPage,
+              child: SizedBox(
+                width: 36,
+                height: 36,
+                child: DecoratedBox(
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                  ),
+                  child: Icon(
+                    CupertinoIcons.chevron_right,
+                    size: slidersSize,
+                    color: slidersColor,
                   ),
                 ),
               ),
-            ],
-          )
-      ],
+            ),
+          if (!centerLeadingDate)
+            Row(
+              children: [
+                GestureDetector(
+                  onTap: onPreviousPage,
+                  child: SizedBox(
+                    width: 36,
+                    height: 36,
+                    child: DecoratedBox(
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                      ),
+                      child: Icon(
+                        CupertinoIcons.chevron_left,
+                        size: slidersSize,
+                        color: slidersColor,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 10),
+                GestureDetector(
+                  onTap: onNextPage,
+                  child: SizedBox(
+                    width: 36,
+                    height: 36,
+                    child: DecoratedBox(
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                      ),
+                      child: Icon(
+                        CupertinoIcons.chevron_right,
+                        size: slidersSize,
+                        color: slidersColor,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            )
+        ],
+      ),
     );
   }
 }
